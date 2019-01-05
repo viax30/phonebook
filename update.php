@@ -24,10 +24,10 @@
 		$phone_no = $_POST['phone_no'];
 		
 		$update_contact = "UPDATE `contacts` SET `name`='$name',`sex`='$sex',`home_address`='$home_address',`phone_no`='$phone_no' where id='$id'";
-        echo $update_contact;
+       
         if (mysqli_query($conn, $update_contact)) {
-            header("location: update.php?update_id=".$update_id);
-			
+            //header("location: update.php?update_id=".$update_id);
+			echo "<script>alert('Record Updated!')</script>";
 		} else {
             echo 0;
 		}
@@ -54,7 +54,7 @@
                 <input type="hidden" name="id" value="<?php echo $result[0]; ?>">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input name="name" type="text" value="<?php echo $result[1] ?>" class="form-control" id="name" placeholder=" Last Name  First Name  Middle Name">
+                        <input name="name" type="text" value="<?php echo $result[1] ?>" class="form-control" id="name" placeholder=" Last Name  First Name  Middle Name" autofocus>
                     </div>  
                     <div class="form-group">
                         <label for="sex">Sex</label>
